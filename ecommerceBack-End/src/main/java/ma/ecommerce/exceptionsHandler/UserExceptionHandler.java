@@ -1,10 +1,10 @@
 package ma.ecommerce.exceptionsHandler;
 
 import jakarta.annotation.Nullable;
-import ma.ecommerce.exceptions.BusinessException;
-import ma.ecommerce.exceptions.BusinessExceptionAuthentification;
-import ma.ecommerce.exceptions.EmailAlreadyExist;
-import ma.ecommerce.exceptions.RecordNotFoundException;
+import ma.ecommerce.exceprions.BusinessException;
+import ma.ecommerce.exceprions.BusinessExceptionAuthentification;
+import ma.ecommerce.exceprions.EmailAlreadyExist;
+import ma.ecommerce.exceprions.RecordNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -20,7 +20,7 @@ import java.util.List;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @ControllerAdvice
 public class UserExceptionHandler extends ResponseEntityExceptionHandler {
-   /**  ****************** Pour Intercepter Les Exceptions  ******************** */
+                        /**   Pour Intercepter Les Exceptions  */
     @Override
     @Nullable /** By adding the @Nullable annotation, you're specifying that the method handleMethodArgumentNotValid is allowed to return null. Keep in mind that using @Nullable is just an indication and doesn't enforce the actual behavior of the method. It's up to you to ensure that the method returns an appropriate ResponseEntity<Object> or null as per your requirement.*/
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {

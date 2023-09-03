@@ -38,7 +38,8 @@ public class SecurityConfiguration {
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
     }
-
+    //   /admin/delete/**  /admin/update/** /admin/create   Admin
+    //   /client/product          /client/product/**                            Client Admin
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors();
@@ -49,6 +50,7 @@ public class SecurityConfiguration {
             auth.requestMatchers("/adminCreate").permitAll();
             auth.requestMatchers("/admin/**").hasAnyAuthority("ADMIN");
             auth.requestMatchers("/client/**").hasAnyAuthority("CLIENT","ADMIN");
+            //auth.requestMatchers("/product/**").hasAnyAuthority("ADMIN");
             auth.anyRequest().authenticated();
         });
         http.authenticationProvider(authenticationProvider());

@@ -1,4 +1,4 @@
-package ma.ecommerce.exceptions;
+package ma.ecommerce.exceprions;
 
 
 import org.springframework.http.HttpStatus;

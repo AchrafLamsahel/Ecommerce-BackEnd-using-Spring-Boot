@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import ma.ecommerce.dto.TokenDTO;
 import ma.ecommerce.dto.UserDTO;
-import ma.ecommerce.exceptions.BusinessExceptionAuthentification;
+import ma.ecommerce.exceprions.BusinessExceptionAuthentification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
