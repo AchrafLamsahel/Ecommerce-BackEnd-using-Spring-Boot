@@ -2,10 +2,9 @@ package ma.ecommerce.services;
 
 import ma.ecommerce.dto.RoleDTO;
 import ma.ecommerce.dto.UserDTO;
-import ma.ecommerce.entities.Product;
 import ma.ecommerce.entities.Role;
 import ma.ecommerce.entities.User;
-import ma.ecommerce.exceprions.BusinessException;
+import ma.ecommerce.exceptions.BusinessException;
 import ma.ecommerce.mappers.RoleMapper;
 import ma.ecommerce.mappers.UserMapper;
 import ma.ecommerce.repositories.ProductRepository;
@@ -125,6 +124,5 @@ public class UserServiceImpl implements IUserService , UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return UserMapper.userToDTO(userRepository.findByUsername(username));
     }
-
 
 }

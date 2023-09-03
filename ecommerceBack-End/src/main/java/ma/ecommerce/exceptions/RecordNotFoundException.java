@@ -1,12 +1,12 @@
-package ma.ecommerce.exceprions;
+package ma.ecommerce.exceptions;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class BusinessException extends RuntimeException {
+public class RecordNotFoundException extends RuntimeException {
     private String message;
-    public BusinessException(String message) {
+    public RecordNotFoundException(String message) {
         this.message = message;
     }
-
 }
