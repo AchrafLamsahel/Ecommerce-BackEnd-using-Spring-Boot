@@ -42,22 +42,22 @@ public class ProductController {
 
     /**---------------------------------- update Product ----------------------------*/
     @PutMapping(value = "/admin/update/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Object> updateProduct(@PathVariable(name = "id") Long empVoId, @RequestBody ProductDTO empVo) {
-        ProductDTO productdto = productService.findProductById(empVoId);
+    public ResponseEntity<Object> updateProduct(@PathVariable(name = "id") Long productId, @RequestBody ProductDTO productDTO) {
+        ProductDTO productdto = productService.findProductById(productId);
         if (productdto == null)
             return new ResponseEntity<>("Product doesn't exist", HttpStatus.OK);
-        empVo.setId(empVoId);
-        productService.saveProduct(empVo);
+        productDTO.setId(productId);
+        productService.saveProduct(productDTO);
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);
     }
 
     /**---------------------------------- delete Product --------------------------*/
     @DeleteMapping(value = "/admin/delete/{id}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Object> deleteProduct(@PathVariable(name = "id") Long empVoId) {
-        ProductDTO productById = productService.findProductById(empVoId);
+    public ResponseEntity<Object> deleteProduct(@PathVariable(name = "id") Long productDto) {
+        ProductDTO productById = productService.findProductById(productDto);
         if (productById == null)
             return new ResponseEntity<>("Product doesn't exist", HttpStatus.OK);
-        productService.delete(empVoId);
+        productService.delete(productDto);
         return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
     }
 

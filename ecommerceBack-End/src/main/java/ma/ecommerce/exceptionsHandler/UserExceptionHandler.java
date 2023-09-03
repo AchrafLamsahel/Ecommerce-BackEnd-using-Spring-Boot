@@ -1,10 +1,10 @@
 package ma.ecommerce.exceptionsHandler;
 
 import jakarta.annotation.Nullable;
-import ma.ecommerce.exceprions.BusinessException;
-import ma.ecommerce.exceprions.BusinessExceptionAuthentification;
-import ma.ecommerce.exceprions.EmailAlreadyExist;
-import ma.ecommerce.exceprions.RecordNotFoundException;
+import ma.ecommerce.exceptions.BusinessException;
+import ma.ecommerce.exceptions.BusinessExceptionAuthentification;
+import ma.ecommerce.exceptions.EmailAlreadyExist;
+import ma.ecommerce.exceptions.RecordNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

@@ -1,12 +1,13 @@
-package ma.ecommerce.exceprions;
+package ma.ecommerce.exceptions;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class RecordNotFoundException extends RuntimeException {
+public class EmailAlreadyExist extends RuntimeException {
     private String message;
-    public RecordNotFoundException(String message) {
+    public EmailAlreadyExist(String message) {
         this.message = message;
     }
 }
