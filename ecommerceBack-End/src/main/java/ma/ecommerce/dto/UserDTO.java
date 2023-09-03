@@ -12,13 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class UserDTO implements UserDetails {
     private Long id;
-    //@NotEmpty(message = "name must not be empty")
     private String username;
-    //@NotEmpty(message = "email must not be empty")
-
     private String email;
-   // @NotEmpty(message = "password must not be empty")
-
     private String userImg;
     private String password;
 
