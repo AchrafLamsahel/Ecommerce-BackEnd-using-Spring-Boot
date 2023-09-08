@@ -1,14 +1,18 @@
 package ma.ecommerce;
 
+import ma.ecommerce.dto.EmailDTO;
 import ma.ecommerce.dto.RoleDTO;
 import ma.ecommerce.dto.UserDTO;
+import ma.ecommerce.services.EmailService;
 import ma.ecommerce.services.IProductService;
 import ma.ecommerce.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Collections;
 
@@ -20,6 +24,8 @@ public class EcommerceBackEndApplication {
 
     @Autowired
     private IProductService iProductService;
+    @Autowired
+    private EmailService emailService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -47,7 +53,15 @@ public class EcommerceBackEndApplication {
             iUserService.saveUser(client2);
             iUserService.saveUser(admin2);
 
+
         };
     }
+    @EventListener(ApplicationReadyEvent.class)
+    public void sendEmail(){
+        EmailDTO emailDTO = new EmailDTO("achraflamsahel1@gmail.com","that is my Password : 12345");
+        emailService.sendCodeByMail(emailDTO);
+        System.out.println("Message send sucseufully ! ");
+    }
+
 }
 
