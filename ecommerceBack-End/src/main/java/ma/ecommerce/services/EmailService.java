@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface EmailService {
-    public void sendCodeByMail(EmailDTO mail);
+    public void sendCodeByMail(EmailDTO mail) throws Exception;
 
 }

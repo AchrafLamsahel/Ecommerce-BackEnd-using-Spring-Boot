@@ -1,6 +1,7 @@
 package ma.ecommerce.exceptionsHandler;
 
 import jakarta.annotation.Nullable;
+import ma.ecommerce.dto.ErrorResponse;
 import ma.ecommerce.exceptions.BusinessException;
 import ma.ecommerce.exceptions.BusinessExceptionAuthentification;
 import ma.ecommerce.exceptions.EmailAlreadyExist;

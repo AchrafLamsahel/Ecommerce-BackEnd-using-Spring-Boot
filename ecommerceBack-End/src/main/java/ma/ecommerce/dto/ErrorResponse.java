@@ -1,4 +1,4 @@
-package ma.ecommerce.exceptionsHandler;
+package ma.ecommerce.dto;
 
 import lombok.Getter;
 import lombok.Setter;
