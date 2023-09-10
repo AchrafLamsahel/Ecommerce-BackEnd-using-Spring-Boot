@@ -47,6 +47,7 @@ public class SecurityConfiguration {
             auth.requestMatchers("/", "/auth/**").permitAll();
             auth.requestMatchers("/contact/**").permitAll();
             auth.requestMatchers("/adminCreate").permitAll();
+            auth.requestMatchers("/codeActivate/**","/resetPassword/**").permitAll();
             auth.requestMatchers("/admin/**").hasAnyAuthority("ADMIN");
             auth.requestMatchers("/client/**").hasAnyAuthority("CLIENT","ADMIN");
             auth.anyRequest().authenticated();

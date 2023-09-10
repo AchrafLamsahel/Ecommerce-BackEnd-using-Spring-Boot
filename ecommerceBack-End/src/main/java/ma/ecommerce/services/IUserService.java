@@ -22,4 +22,6 @@ public interface IUserService {
     UserDTO findUserByCode(String code);
 
     void editUser(UserDTO userDTO);
+
+    UserDTO resetPassword(String code, String newPassword) throws Exception;
 }

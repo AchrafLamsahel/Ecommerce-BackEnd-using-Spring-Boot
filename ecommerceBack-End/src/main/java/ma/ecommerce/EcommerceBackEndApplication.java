@@ -25,15 +25,12 @@ import java.util.Collections;
 
 @SpringBootApplication
 public class EcommerceBackEndApplication {
-
     @Autowired
     private IUserService iUserService;
-
     @Autowired
     private IProductService iProductService;
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private EmailService emailService;
 
@@ -41,17 +38,13 @@ public class EcommerceBackEndApplication {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
-
     public static void main(String[] args) {
         SpringApplication.run(EcommerceBackEndApplication.class, args);
     }
-
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {
-/*
+            /**
             iUserService.saveRole(new RoleDTO("ADMIN"));
             iUserService.saveRole(new RoleDTO("CLIENT"));
             RoleDTO roleAdmin = iUserService.getRoleByName("ADMIN");
@@ -64,20 +57,19 @@ public class EcommerceBackEndApplication {
             iUserService.saveUser(client1);
             iUserService.saveUser(client2);
             iUserService.saveUser(admin2);
-*/
-
+             */
         };
     }
 
+    /**
     @EventListener(ApplicationReadyEvent.class)
     public void sendEmail() throws Exception {
-        String email ="Achraflamsahel1@gmail.com";
+        String email ="achraf.lamsahel99@gmail.com";
         //emailService.sendCodeByMail(email);
         System.out.println("Message send successfully ! ");
-        emailService.resetPassword("7336d4d7-1daa-42d1-9a53-82e288baa3d2","1312");
-
+        iUserService.resetPassword("e9786a0d-ad41-458b-bba0-2445c19fff34","Adv123");
     }
-
+     */
 
 
 

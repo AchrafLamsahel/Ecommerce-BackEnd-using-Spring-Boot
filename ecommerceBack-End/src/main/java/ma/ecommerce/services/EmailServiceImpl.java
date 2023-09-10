@@ -24,14 +24,14 @@ public class EmailServiceImpl implements EmailService{
     private UserRepository userRepository;
     @Autowired
     private IUserService userService;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Value("${emailAdmin}")
     private String emailAdmin;
 
     @Override
     @Async
-    public void sendCodeByMail(String emailDTO) {
+    public boolean sendCodeByMail(String emailDTO) {
         UserDTO userDTo = UserMapper.userToDTO(userRepository.findUsersByEmail(emailDTO));
         if (userDTo.getEmail() != null){
             String newCode = UserCode.getCode();
@@ -43,14 +43,16 @@ public class EmailServiceImpl implements EmailService{
             simpleMailMessage.setSubject("Validation Account");
             simpleMailMessage.setText("Le Code de Validation Is : "+ userDTo.getCode());
             javaMailSender.send(simpleMailMessage);
+            return true;
         }else{
             throw new RuntimeException("No User with email :  " + emailDTO);
         }
     }
+    /**
     @Override
     public UserDTO resetPassword(String code, String newPassword){
         UserDTO userDTo = UserMapper.userToDTO(userRepository.findUsersByCode(code));
-        if(userDTo != null){
+        if(userDTo != null) {
             if(userDTo.getCode().equals(code)){
                 String pss= bCryptPasswordEncoder.encode(newPassword);
                 userDTo.setPassword(pss);
@@ -65,5 +67,6 @@ public class EmailServiceImpl implements EmailService{
         }
         return userDTo;
     }
+    */
 
 }

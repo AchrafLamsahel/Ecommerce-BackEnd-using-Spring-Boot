@@ -10,6 +10,7 @@ import ma.ecommerce.mappers.UserMapper;
 import ma.ecommerce.repositories.ProductRepository;
 import ma.ecommerce.repositories.RoleRepository;
 import ma.ecommerce.repositories.UserRepository;
+import ma.ecommerce.util.UserCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -130,6 +131,25 @@ public class UserServiceImpl implements IUserService , UserDetailsService {
     @Override
     public void editUser(UserDTO userDTO){
         userRepository.save(UserMapper.DtoToUser(userDTO));
+    }
+
+    @Override
+    public UserDTO resetPassword(String code, String newPassword) throws Exception {
+        UserDTO userDTo = UserMapper.userToDTO(userRepository.findUsersByCode(code));
+        if(userDTo != null) {
+            if(userDTo.getCode().equals(code)){
+                String pss= bCryptPasswordEncoder.encode(newPassword);
+                userDTo.setPassword(pss);
+                String newCode = UserCode.getCode();
+                userDTo.setCode(newCode);
+                editUser(userDTo);
+            }else{
+                throw new RuntimeException("Failed Code with  :  " + userDTo.getCode());
+            }
+        }else  {
+            throw new RuntimeException("User Don' Found With Code   :  " + code);
+        }
+        return userDTo;
     }
 
     @Override
