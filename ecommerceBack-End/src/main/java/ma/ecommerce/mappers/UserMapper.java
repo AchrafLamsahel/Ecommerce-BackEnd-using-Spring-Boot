@@ -19,6 +19,7 @@ public class UserMapper {
         userDTO.setAccountNonExpired(user.isAccountNonExpired());
         userDTO.setAccountNonLocked(user.isAccountNonLocked());
         userDTO.setCredentialsNonExpired(user.isCredentialsNonExpired());
+        userDTO.setCode(user.getCode());
         return userDTO;
     }
 
@@ -35,6 +36,7 @@ public class UserMapper {
         user.setAccountNonExpired(userDTO.isAccountNonExpired());
         user.setAccountNonLocked(userDTO.isAccountNonLocked());
         user.setCredentialsNonExpired(userDTO.isCredentialsNonExpired());
+        user.setCode(userDTO.getCode());
         return user;
     }
 

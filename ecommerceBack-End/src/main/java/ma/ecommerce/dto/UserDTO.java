@@ -16,19 +16,17 @@ public class UserDTO implements UserDetails {
     private String email;
     private String userImg;
     private String password;
-
-    public UserDTO(String username, String email, String userImg, String password) {
+    private String code;
+    private boolean accountNonExpired;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+    private boolean enabled;
+    public UserDTO(String username, String email, String userImg, String password, String code, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, List<RoleDTO> roles) {
         this.username = username;
         this.email = email;
         this.userImg = userImg;
         this.password = password;
-    }
-
-    public UserDTO(String username, String email, String userImg, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, List<RoleDTO> roles) {
-        this.username = username;
-        this.email = email;
-        this.userImg = userImg;
-        this.password = password;
+        this.code = code;
         this.accountNonExpired = accountNonExpired;
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
@@ -36,11 +34,7 @@ public class UserDTO implements UserDetails {
         this.roles = roles;
     }
 
-    private boolean accountNonExpired;
 
-    private boolean accountNonLocked;
-    private boolean credentialsNonExpired;
-    private boolean enabled;
 
     private List<RoleDTO> roles = new ArrayList<RoleDTO>();
 

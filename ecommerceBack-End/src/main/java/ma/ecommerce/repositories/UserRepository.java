@@ -15,8 +15,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     User findUsersByEmail(String email);
     List<User> findByEmail(String mail);
     boolean existsByUsername(String username); // JWT :New
-
     List<User> findAllByUsername(String username);
+    User findUsersByCode(String code);
 
 
 

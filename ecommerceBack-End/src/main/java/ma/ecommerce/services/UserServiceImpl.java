@@ -121,6 +121,18 @@ public class UserServiceImpl implements IUserService , UserDetailsService {
     }
 
     @Override
+    public UserDTO findUserByCode(String email) {
+        User user = userRepository.findUsersByCode(email);
+        if(user != null) return UserMapper.userToDTO(user);
+        else
+            throw new BusinessException("No user with this Email");
+    }
+    @Override
+    public void editUser(UserDTO userDTO){
+        userRepository.save(UserMapper.DtoToUser(userDTO));
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return UserMapper.userToDTO(userRepository.findByUsername(username));
     }

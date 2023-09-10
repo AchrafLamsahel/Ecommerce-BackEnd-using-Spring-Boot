@@ -18,7 +18,8 @@ public interface IUserService {
     RoleDTO getRoleByName(String role);
     boolean existsByName(String username); // New
     UserDTO findByUsername(String username); // New
-
     List<UserDTO> search(String username);
+    UserDTO findUserByCode(String code);
 
+    void editUser(UserDTO userDTO);
 }
