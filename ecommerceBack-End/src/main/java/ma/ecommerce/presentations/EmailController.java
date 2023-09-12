@@ -1,7 +1,5 @@
 package ma.ecommerce.presentations;
 
-import jakarta.validation.Valid;
-import ma.ecommerce.dto.UserDTO;
 import ma.ecommerce.exceptions.RecordNotFoundException;
 import ma.ecommerce.services.EmailService;
 import ma.ecommerce.services.IUserService;
@@ -10,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -23,7 +19,7 @@ public class EmailController {
     private EmailService emailService;
 
     @PostMapping(value = "/codeActivate/{email}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<String> sendCodeActivationToEmail(@PathVariable(value = "email") @RequestBody  String email) throws Exception {
+    public ResponseEntity<String> sendCodeActivationToEmail(@RequestBody @PathVariable(value = "email")   String email) throws Exception {
         if (!emailService.sendCodeByMail(email)) {
             throw new RecordNotFoundException("Email don't found : " + email);
         }
@@ -38,11 +34,6 @@ public class EmailController {
         }
         return new ResponseEntity<String>("Password successfully updated",HttpStatus.ACCEPTED);
     }
-
-
-
-
-
 
 
 }

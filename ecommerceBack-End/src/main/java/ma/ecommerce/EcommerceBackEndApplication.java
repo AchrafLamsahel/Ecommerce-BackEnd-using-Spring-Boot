@@ -1,10 +1,7 @@
 package ma.ecommerce;
 
-
-import ma.ecommerce.dto.EmailDTO;
 import ma.ecommerce.dto.RoleDTO;
 import ma.ecommerce.dto.UserDTO;
-import ma.ecommerce.entities.User;
 import ma.ecommerce.repositories.UserRepository;
 import ma.ecommerce.services.EmailService;
 import ma.ecommerce.services.IProductService;
@@ -44,7 +41,7 @@ public class EcommerceBackEndApplication {
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {
-            /**
+
             iUserService.saveRole(new RoleDTO("ADMIN"));
             iUserService.saveRole(new RoleDTO("CLIENT"));
             RoleDTO roleAdmin = iUserService.getRoleByName("ADMIN");
@@ -57,7 +54,7 @@ public class EcommerceBackEndApplication {
             iUserService.saveUser(client1);
             iUserService.saveUser(client2);
             iUserService.saveUser(admin2);
-             */
+
         };
     }
 

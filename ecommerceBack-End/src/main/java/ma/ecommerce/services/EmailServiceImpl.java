@@ -24,8 +24,7 @@ public class EmailServiceImpl implements EmailService{
     private UserRepository userRepository;
     @Autowired
     private IUserService userService;
-    //@Autowired
-    //private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Value("${emailAdmin}")
     private String emailAdmin;
 
