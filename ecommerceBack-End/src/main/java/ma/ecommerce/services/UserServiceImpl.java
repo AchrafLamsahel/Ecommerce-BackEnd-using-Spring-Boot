@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService , UserDetailsService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Override
     public void saveUser(UserDTO userDTO) {
-        User user = UserMapper.DtoToUser(userDTO);
+        User user = UserMapper.dtoToUser(userDTO);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         List<Role> roles = new ArrayList<>();
         for(Role e: user.getRoles()){
@@ -130,7 +130,7 @@ public class UserServiceImpl implements IUserService , UserDetailsService {
     }
     @Override
     public void editUser(UserDTO userDTO){
-        userRepository.save(UserMapper.DtoToUser(userDTO));
+        userRepository.save(UserMapper.dtoToUser(userDTO));
     }
 
     @Override

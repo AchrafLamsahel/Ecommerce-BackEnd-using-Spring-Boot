@@ -23,7 +23,7 @@ public class UserMapper {
         return userDTO;
     }
 
-    public static User DtoToUser(UserDTO userDTO){
+    public static User dtoToUser(UserDTO userDTO){
         if(userDTO == null ) return null;
         User user = new User();
         user.setId(userDTO.getId());
@@ -42,7 +42,7 @@ public class UserMapper {
 
     public static List<User> usersDtoToUsers(List<UserDTO> userDTOList) {
         if (userDTOList == null || userDTOList.isEmpty()) return null;
-        return userDTOList.stream().map(UserMapper::DtoToUser)
+        return userDTOList.stream().map(UserMapper::dtoToUser)
                 .collect(Collectors.toList());
     }
 

@@ -1,7 +1,7 @@
 package ma.ecommerce.presentations;
 
 import ma.ecommerce.exceptions.RecordNotFoundException;
-import ma.ecommerce.services.EmailService;
+import ma.ecommerce.services.IEmailService;
 import ma.ecommerce.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class EmailController {
     @Autowired
     private IUserService iUserService;
     @Autowired
-    private EmailService emailService;
+    private IEmailService emailService;
 
     @PostMapping(value = "/codeActivate/{email}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<String> sendCodeActivationToEmail(@RequestBody @PathVariable(value = "email")   String email) throws Exception {
