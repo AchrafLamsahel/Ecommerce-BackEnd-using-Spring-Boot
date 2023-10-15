@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class EmailDTO {
-    @Email
+
     private String to;
     private String code;
 

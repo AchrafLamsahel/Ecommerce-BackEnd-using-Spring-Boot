@@ -19,8 +19,9 @@ public class EmailController {
     private IEmailService emailService;
 
     @PostMapping(value = "/codeActivate/{email}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<String> sendCodeActivationToEmail(@RequestBody @PathVariable(value = "email")   String email) throws Exception {
-        if (!emailService.sendCodeByMail(email)) {
+    public ResponseEntity<String> sendCodeActivationToEmail(@PathVariable(value = "email")   String email) throws RecordNotFoundException {
+        boolean result=emailService.sendCodeByMail(email);
+        if (!result) {
             throw new RecordNotFoundException("Email don't found : " + email);
         }
         return new ResponseEntity<String>("Activate Code send successfully : "+ email,HttpStatus.ACCEPTED);

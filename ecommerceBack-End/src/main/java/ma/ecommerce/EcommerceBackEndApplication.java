@@ -55,7 +55,6 @@ public class EcommerceBackEndApplication {
             iUserService.saveUser(client2);
             iUserService.saveUser(admin2);
 
-
         };
     }
 
