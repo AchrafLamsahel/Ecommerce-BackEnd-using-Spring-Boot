@@ -3,7 +3,7 @@ package ma.ecommerce.services;
 import ma.ecommerce.dto.UserDTO;
 import ma.ecommerce.mappers.UserMapper;
 import ma.ecommerce.repositories.UserRepository;
-import ma.ecommerce.util.UserCode;
+import ma.ecommerce.utils.UserCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

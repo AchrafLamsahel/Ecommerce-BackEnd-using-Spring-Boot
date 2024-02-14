@@ -10,7 +10,7 @@ import ma.ecommerce.mappers.UserMapper;
 import ma.ecommerce.repositories.ProductRepository;
 import ma.ecommerce.repositories.RoleRepository;
 import ma.ecommerce.repositories.UserRepository;
-import ma.ecommerce.util.UserCode;
+import ma.ecommerce.utils.UserCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

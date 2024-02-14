@@ -1,13 +1,12 @@
 package ma.ecommerce;
 
-import ma.ecommerce.dto.ProductDTO;
 import ma.ecommerce.dto.RoleDTO;
 import ma.ecommerce.dto.UserDTO;
 import ma.ecommerce.repositories.UserRepository;
 import ma.ecommerce.services.IEmailService;
 import ma.ecommerce.services.IProductService;
 import ma.ecommerce.services.IUserService;
-import ma.ecommerce.util.UserCode;
+import ma.ecommerce.utils.UserCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collections;
-import java.util.Date;
 
 @SpringBootApplication
 public class EcommerceBackEndApplication {

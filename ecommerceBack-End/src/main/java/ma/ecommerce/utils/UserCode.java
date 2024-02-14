@@ -1,4 +1,4 @@
-package ma.ecommerce.util;
+package ma.ecommerce.utils;
 
 import java.util.UUID;
 

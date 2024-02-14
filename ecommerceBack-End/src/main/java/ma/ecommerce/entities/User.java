@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.ecommerce.util.UserCode;
 
 import java.util.List;
 @Data
@@ -27,7 +26,6 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER  , cascade = { CascadeType.PERSIST,CascadeType.REMOVE})
     List <Role> roles ;
     private String code;
-
 
     public User(String username, String email, String password, String userImg, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, List<Role> roles, String code) {
         this.username = username;

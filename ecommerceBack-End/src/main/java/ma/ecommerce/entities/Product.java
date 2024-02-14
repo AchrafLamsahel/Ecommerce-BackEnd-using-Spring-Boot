@@ -12,12 +12,11 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 public class Product {
-    @Id      // Spring boot makes use of Jakarta EE 9 APIs (jakarta.*) instead of EE 8 (javax.*).
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String category;
-
     private String targetGender;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date datepost = new Date(System.currentTimeMillis());
